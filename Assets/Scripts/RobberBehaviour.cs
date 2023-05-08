@@ -74,6 +74,7 @@ public class RobberBehaviour : MonoBehaviour
         if (s == Node.Status.SUCCESS)
         {
             diamond.SetActive(false);
+            Debug.Log("Money: " + this.money);
             this.money += 525;
         }
         return s;
@@ -97,7 +98,6 @@ public class RobberBehaviour : MonoBehaviour
             if (!door.GetComponent<Lock>().isLocked)  // If door is not locked
             {
                 door.SetActive(false);    // Get rid of the door as an obstacle
-                this.money += 525;
                 return Node.Status.SUCCESS;
             }
             return Node.Status.FAILURE;     // otherwise return failure and continue to next door
